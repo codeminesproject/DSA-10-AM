@@ -14,12 +14,14 @@ C = TreeNode("C")
 D = TreeNode("D")
 E = TreeNode("E")
 F = TreeNode("F")
+G = TreeNode("G")
 
 A.add_child(B)
 A.add_child(C)
 A.add_child(D)
 B.add_child(E)
 B.add_child(F)
+F.add_child(G)
 
 def searchNode(node,key):
     if node.data==key:
@@ -32,7 +34,7 @@ def searchNode(node,key):
     return None
 
 
-response = searchNode(A,"G")
+response = searchNode(A,"C")
 if response is not None:
     print("Node Exist")
 else:

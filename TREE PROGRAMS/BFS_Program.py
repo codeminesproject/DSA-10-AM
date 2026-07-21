@@ -1,3 +1,4 @@
+from collections import deque
 
 class TreeNode:
     def __init__(self, data):
@@ -20,12 +21,8 @@ A.add_child(C)
 A.add_child(D)
 B.add_child(E)
 B.add_child(F)
-D.add_child(G)
-
-def displayTree(node,level=0):
-    print(" " * level + "↳ " +node.data)
-    for child in node.children:
-        displayTree(child,level+1)
+F.add_child(G)
 
 
-displayTree(A)
+
+
