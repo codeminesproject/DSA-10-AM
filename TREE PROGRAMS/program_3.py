@@ -1,3 +1,5 @@
+
+# add child for node in tree
 from collections import deque
 
 class TreeNode:
@@ -28,28 +30,30 @@ def displayTree(node,level=0):
     for child in node.children:
         displayTree(child,level+1)
 
-def searchnode(node,key):
-    queue = deque([node])
+
+def searchParentNode(root,key):
+    queue = deque([root])
     while queue:
         current = queue.popleft()
         print("Current Node:",current.data)
 
-        if current.data==key:
-            return current
-
         for child in current.children:
+            if child.data == key:
+                return current
             queue.append(child)
     return None
 
 
 displayTree(A)
-result=searchnode(A,"I")
-if result is not None:
-    print("key exist")
-else:
-    print("key not exist") 
 
+parent_node = searchParentNode(A,"G")
+print("Parent Node:",parent_node.data)
 
+for child in parent_node.children:
+    if child.data=="G":
+        parent_node.children.remove(child)
 
+print("-----------------------------------")
 
+displayTree(A)
 
